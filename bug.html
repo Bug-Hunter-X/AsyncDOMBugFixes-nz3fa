@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Uncommon HTML Bug</title>
+</head>
+<body>
+  <div id="myDiv">
+    This text will be replaced.
+  </div>
+  <script>
+    // This script attempts to replace the content of a div element asynchronously
+    // The issue is, the asynchronous operation may not wait for the div to be created,
+    // in the DOM before attempting to work with it. 
+    setTimeout(function(){
+      document.getElementById("myDiv").innerHTML = "New text!";
+    }, 0); 
+  </script>
+</body>
+</html>
